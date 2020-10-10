@@ -34,12 +34,9 @@ npm i use-barikoi
 
 Now you can import 6 API hooks and an `useDebounce` utility hook to easily debounce api requests.
 
-#### Using Named Exports
-
 ```tsx
 import React, { useState } from 'react';
-import { useDebounce } from '../hooks/use-debounce';
-import { useAutocomplete } from '../hooks/use-autocomplete';
+import { useAutocomplete, useDebounce } from 'use-barikoi';
 
 export const App: React.FC = ({}) => {
   const apiKey = 'YOUR-API-KEY';
