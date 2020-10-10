@@ -1,0 +1,48 @@
+{
+  "name": "use-barikoi",
+  "version": "1.0.0",
+  "description": "Your favorite Barikoi APIs now available as react hooks!",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist",
+    "package.json",
+    "LICENSE"
+  ],
+  "repository": "https://github.com/kuasha420/use-barikoi",
+  "keywords": [
+    "barikoi",
+    "barikoi-react",
+    "barikoi-hooks",
+    "react-location",
+    "react-geocoding",
+    "react-location-search"
+  ],
+  "author": "Arafat Zahan",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=16.8"
+  },
+  "scripts": {
+    "prepare": "rm -rf ./dist/* && tsc"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.50",
+    "@typescript-eslint/eslint-plugin": "2.x",
+    "@typescript-eslint/parser": "2.x",
+    "babel-eslint": "10.x",
+    "eslint": "6.x",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-plugin-flowtype": "4.x",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "2.x",
+    "prettier": "^2.1.2",
+    "react": "^16.13.1",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "barikoi-unified": "^1.0.5"
+  }
+}
