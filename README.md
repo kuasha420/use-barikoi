@@ -45,7 +45,7 @@ export const App: React.FC = ({}) => {
   const [query, setQuery] = useState('');
   const value = useDebounce(query, 1000);
 
-  const autocomplete = useAutocomplete(apiKey, value);
+  const [result, isLoading] = useAutocomplete(apiKey, value);
 
   return (
     <section className="bk-section">
@@ -59,6 +59,7 @@ export const App: React.FC = ({}) => {
           }}
         />
       </form>
+      {isLoading && <div class="loading"></div>}
       {autocomplete?.map((result) => (
         <div key={result.id}>
           <div
@@ -78,11 +79,55 @@ export const App: React.FC = ({}) => {
 
 ## APIS
 
+### Difference between v2 & v1
+
+Version 2 of the library introduces loading state on all 6 API. Where v1 of the library used to return only result, v2 returns an array where first element is the result and second element is a boolean indicating loading status of the API.
+
 This library exports 7 hooks. Those are as follows:
+
+### Version 2
 
 ```typescript
 // Autocomplete
-const useAutocomplete = (apiKey: API_KEY, query: string, latitude?: number, longitude?: number, scale?: number) => AutocompleteResponse[] | undefined;
+const useAutocomplete = (apiKey: API_KEY, query: string, latitude?: number, longitude?: number, scale?: number) => [AutocompleteResponse[] | undefined, boolean];
+
+// Autocomplete (Post Office)
+const useAutocompletePO: (apiKey: API_KEY, query: string) => [AutocompleteResponse[] | undefined, boolean]
+
+// Distance
+const useDistance: (apiKey: API_KEY, latitudeFrom: number, longitudeFrom: number, latitudeTo: number, longitudeTo: number) => [number | undefined, boolean]
+
+// Geocode
+const useGeocode: (apiKey: API_KEY, place_id: number) => [GeocodeResponse | undefined, boolean]
+
+// Nearby
+const useNearby: (apiKey: API_KEY, latitude: number, longitude: number, types?: PlaceType, distance?: number, limit?: number) => [NearbyResponse[] | undefined, boolean]
+
+// Reverse Geocode
+interface ReverseGeocodeExtraFields {
+  district?: boolean;
+  post_code?: boolean;
+  country?: boolean;
+  sub_district?: boolean;
+  union?: boolean;
+  pauroshova?: boolean;
+  location_type?: boolean;
+}
+
+const useReverseGeocode: (apiKey: API_KEY, latitude: number, longitude: number, extraFields?: ReverseGeocodeExtraFields) => [ReverseGeocodeResponse | undefined, boolean]
+
+// Debounce Hook
+const useDebounce: <T>(value: T, delay: number) => T
+```
+
+### Version 1
+
+<details>
+  <summary>Click to View V1 API</summary>
+  
+  ```typescript
+  // Autocomplete
+  const useAutocomplete = (apiKey: API_KEY, query: string, latitude?: number, longitude?: number, scale?: number) => AutocompleteResponse[] | undefined;
 
 // Autocomplete (Post Office)
 const useAutocompletePO: (apiKey: API_KEY, query: string) => AutocompleteResponse[] | undefined
@@ -98,20 +143,23 @@ const useNearby: (apiKey: API_KEY, latitude: number, longitude: number, types?: 
 
 // Reverse Geocode
 interface ReverseGeocodeExtraFields {
-  district?: boolean;
-  post_code?: boolean;
-  country?: boolean;
-  sub_district?: boolean;
-  union?: boolean;
-  pauroshova?: boolean;
-  location_type?: boolean;
+district?: boolean;
+post_code?: boolean;
+country?: boolean;
+sub_district?: boolean;
+union?: boolean;
+pauroshova?: boolean;
+location_type?: boolean;
 }
 
 const useReverseGeocode: (apiKey: API_KEY, latitude: number, longitude: number, extraFields?: ReverseGeocodeExtraFields) => ReverseGeocodeResponse | undefined
 
 // Debounce Hook
 const useDebounce: <T>(value: T, delay: number) => T
+
 ```
+
+</details>
 
 ## License
 
@@ -120,3 +168,4 @@ This package is licensed under the MIT License.
 ## Contribution
 
 Any kind of contribution is welcome. Thanks!
+```

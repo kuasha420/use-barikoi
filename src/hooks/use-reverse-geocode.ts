@@ -1,5 +1,5 @@
-import { API_KEY, reverseGeocode, ReverseGeocodeResponse } from "barikoi-unified";
-import { useEffect, useState } from "react";
+import { API_KEY, reverseGeocode, ReverseGeocodeResponse } from 'barikoi-unified';
+import { useEffect, useState } from 'react';
 
 export interface ReverseGeocodeExtraFields {
   district?: boolean;
@@ -35,11 +35,13 @@ export const useReverseGeocode = (
     location_type,
   } = extraFields;
   const [result, setResult] = useState<ReverseGeocodeResponse>();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!latitude || !longitude) {
       return;
     }
+    setLoading(true);
     reverseGeocode(apiKey, {
       latitude,
       longitude,
@@ -51,8 +53,14 @@ export const useReverseGeocode = (
       pauroshova,
       location_type,
     })
-      .then(setResult)
-      .catch(console.error);
+      .then((res) => {
+        setLoading(false);
+        setResult(res);
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.error(error);
+      });
   }, [
     apiKey,
     country,
@@ -66,5 +74,5 @@ export const useReverseGeocode = (
     union,
   ]);
 
-  return result;
+  return [result, loading] as [typeof result, typeof loading];
 };

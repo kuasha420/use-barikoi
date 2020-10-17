@@ -1,6 +1,6 @@
 {
   "name": "use-barikoi",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Your favorite Barikoi APIs now available as react hooks!",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -27,20 +27,20 @@
     "prepare": "rm -rf ./dist/* && tsc"
   },
   "devDependencies": {
-    "@types/react": "^16.9.50",
+    "@types/react": "^16.9.53",
     "@typescript-eslint/eslint-plugin": "2.x",
     "@typescript-eslint/parser": "2.x",
     "babel-eslint": "10.x",
     "eslint": "6.x",
     "eslint-config-react-app": "^5.2.1",
-    "eslint-plugin-flowtype": "4.x",
+    "eslint-plugin-flowtype": "3.x",
     "eslint-plugin-import": "2.x",
     "eslint-plugin-jsx-a11y": "6.x",
     "eslint-plugin-react": "7.x",
-    "eslint-plugin-react-hooks": "2.x",
+    "eslint-plugin-react-hooks": "1.x",
     "prettier": "^2.1.2",
-    "react": "^16.13.1",
-    "typescript": "^4.0.3"
+    "react": "^16.14.0",
+    "typescript": "^3.9.7"
   },
   "dependencies": {
     "barikoi-unified": "^1.0.5"
