@@ -15,7 +15,7 @@ This library uses barikoi-unified under the hood and is used by react-barikoi an
 
 ## Installation & Usage
 
-### For node/react-native
+### For react/react-native
 
 Install with your favorite package manager.
 
