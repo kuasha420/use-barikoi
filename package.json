@@ -1,8 +1,9 @@
 {
   "name": "use-barikoi",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Your favorite Barikoi APIs now available as react hooks!",
   "main": "dist/index.js",
+  "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "/dist",
@@ -24,7 +25,7 @@
     "react": ">=16.8"
   },
   "scripts": {
-    "prepare": "rm -rf ./dist/* && tsc"
+    "prepare": "rm -rf ./dist/* && tsc && tsc -p ./tsconfig.esm.json"
   },
   "devDependencies": {
     "@types/react": "^16.9.53",
