@@ -60,7 +60,7 @@ export const App: React.FC = ({}) => {
         />
       </form>
       {isLoading && <div class="loading"></div>}
-      {autocomplete?.map((result) => (
+      {result?.map((result) => (
         <div key={result.id}>
           <div
             onClick={() => {
