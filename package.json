@@ -1,9 +1,10 @@
 {
   "name": "use-barikoi",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Your favorite Barikoi APIs now available as react hooks!",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
+  "react-native": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "/dist",
@@ -28,22 +29,22 @@
     "prepare": "rm -rf ./dist/* && tsc && tsc -p ./tsconfig.esm.json"
   },
   "devDependencies": {
-    "@types/react": "^16.9.53",
-    "@typescript-eslint/eslint-plugin": "2.x",
-    "@typescript-eslint/parser": "2.x",
-    "babel-eslint": "10.x",
-    "eslint": "6.x",
-    "eslint-config-react-app": "^5.2.1",
-    "eslint-plugin-flowtype": "3.x",
+    "@types/react": "17.0.0",
+    "@typescript-eslint/eslint-plugin": "4.11.1",
+    "@typescript-eslint/parser": "4.11.1",
+    "babel-eslint": "10",
+    "eslint": "7.17.0",
+    "eslint-config-react-app": "6.0.0",
+    "eslint-plugin-flowtype": "5.2.0",
     "eslint-plugin-import": "2.x",
-    "eslint-plugin-jsx-a11y": "6.x",
-    "eslint-plugin-react": "7.x",
-    "eslint-plugin-react-hooks": "1.x",
-    "prettier": "^2.1.2",
-    "react": "^16.14.0",
-    "typescript": "^3.9.7"
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-react": "7.22.0",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "prettier": "2.2.1",
+    "react": "17.0.1",
+    "typescript": "4.1.3"
   },
   "dependencies": {
-    "barikoi-unified": "^1.0.5"
+    "barikoi-unified": "1.0.6"
   }
 }
